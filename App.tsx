@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useEffect } from 'react';
+import { StatusBar } from 'react-native';
+import AppNavigator from './src/navigation/AppNavigator';
+import * as SplashScreen from 'expo-splash-screen';
+
+import {
+  useFonts as useMontserrat,
+  Montserrat_400Regular,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat';
+import {
+  useFonts as useOpenSans,
+  OpenSans_300Light,
+  OpenSans_400Regular,
+} from '@expo-google-fonts/open-sans';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [montserratLoaded] = useMontserrat({
+    Montserrat_400Regular,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+  });
+  const [openSansLoaded] = useOpenSans({
+    OpenSans_300Light,
+    OpenSans_400Regular,
+  });
+
+  const onReady = useCallback(async () => {
+    if (montserratLoaded && openSansLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [montserratLoaded, openSansLoaded]);
+
+  useEffect(() => {
+    onReady();
+  }, [onReady]);
+
+  if (!montserratLoaded || !openSansLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#1B3B6F" />
+      <AppNavigator />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

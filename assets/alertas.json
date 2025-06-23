@@ -1,0 +1,32 @@
+{
+    "notificacoes": [
+      {
+        "id": 1,
+        "titulo": "Alerta: Enchente no Bairro Centro",
+        "mensagem": "Nível do rio subiu 2m em 1h. Procure abrigo imediatamente.",
+        "data": "06/06/2025 14:30",
+        "tipo": "Alerta"
+      },
+      {
+        "id": 2,
+        "titulo": "Convocação: Voluntários para distribuição de água",
+        "mensagem": "Ponto de encontro na praça central às 16h.",
+        "data": "06/06/2025 10:00",
+        "tipo": "Convocação"
+      },
+      {
+        "id": 3,
+        "titulo": "Atenção: Ponte parcialmente interditada",
+        "mensagem": "A ponte sobre o rio está interditada para passagem de veículos leves.",
+        "data": "06/06/2025 08:45",
+        "tipo": "Atenção"
+      },
+      {
+        "id": 4,
+        "titulo": "Alerta: Vento forte em área litorânea",
+        "mensagem": "Rajadas de vento acima de 60 km/h. Evite áreas abertas e praias.",
+        "data": "06/06/2025 07:30",
+        "tipo": "Alerta"
+      }
+    ]
+  }
